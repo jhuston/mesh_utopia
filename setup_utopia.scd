@@ -26,7 +26,6 @@ peer.name ++ " | " ++ peer.addr.ip ++ " | " ++ if(peer.online, "online", "offlin
 
 ~chatter = Chatter(~addrBook);
 // make a GUI to see the results
-(
 ~chatWin = Window("Mesh Chat").front;
 ~chatWin.layout = VLayout(~textField = TextField(), ~textView = TextView());
 ~textField.action_({|v| ~chatter.send(v.string); v.string = "" });
@@ -35,10 +34,6 @@ peer.name ++ " | " ++ peer.addr.ip ++ " | " ++ if(peer.online, "online", "offlin
     { ~textView.string_(who ++ ": " ++ "\n" ++ chat ++ "\n" ++ ~textView.string) }.defer;
 });
 ~chatWin.alwaysOnTop = true;
-)
-
-// cleanup
-~chatter.free; ~chatWin.close;
 
 // make a shared relay
 ~codeRelay = CodeRelay(~addrBook);
@@ -50,6 +45,3 @@ History.makeWin(20@20);
 // code relay now sends to History window:
 ~codeRelay.addHistory;
 
-// remove coderelay and free its resources.
-~codeRelay.free;
-History.end;
