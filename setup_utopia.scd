@@ -12,9 +12,14 @@ peer.name ++ " | " ++ peer.addr.ip ++ " | " ++ if(peer.online, "online", "offlin
 });
 
 ~addrBook.addMe("hostname".unixCmdGetStdOut.split($.)[0];); // add this machine
-~hail = Hail(~addrBook);
+if (~streisand.class == NMLNetAddrMP, {
+	"using streisand broadcast address".postln;
+	~hail = Hail(~addrBook, 1, broadcastAddr: ~streisand);
+}, {
+	"using default broadcast address".postln;
+	~hail = Hail(~addrBook);
+});
 ~me = ~addrBook.me;
-
 // assumes ~addrBook contains the appropriate Peers
 // everybody run this
 ~synthDescRel = SynthDescRelay(~addrBook);
