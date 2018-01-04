@@ -42,11 +42,22 @@ if (~streisand.class == NMLNetAddrMP, {
 
 // make a shared relay
 ~codeRelay = CodeRelay(~addrBook);
-
+// only send working code to peers
+~codeRelay.onlyWorkingCode_(true);
 // start History and make its gui for testing
 History.start.localOff;
 History.makeWin(20@20);
-
 // code relay now sends to History window:
 ~codeRelay.addHistory;
 
+if(~enableRemoteCodeExecution == true, {
+// Enables executing code from all peers in the addressBook.
+~codeRelay.addDependant({|codeRelay, what, who, code|
+	codeRelay.postln;
+	what.postln;
+	who.postln;
+	code.postln;
+	if(who != ~me.name,
+		{code.interpret},
+		{"not interpreting code from you twice!".postln});
+});} ,{"not executing remote code"});
