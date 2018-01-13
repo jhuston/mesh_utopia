@@ -1,5 +1,4 @@
 // very simple synthdef with percussive attack
-(
 SynthDef(\trigTest, {
 	|out, t_trig=0, dur=1.0, freq=440|
 	Out.ar(
@@ -10,7 +9,6 @@ SynthDef(\trigTest, {
 				Decay2.kr(t_trig, 0.005, dur)
 		), 0));
 }).add;
-)
 
 //
 // caution, summing signals, so it is possible to blow out.

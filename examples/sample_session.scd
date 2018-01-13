@@ -1,6 +1,6 @@
 // Sample session.
 // first run the code in ../mesh_startup
-"synthdefs".loadRelative;
+"synthdefs.scd".loadRelative;
 // Anyone can instantiate a synth.
 // only the person who instantiates the synth can .set args on the synth
 u=Synth.new(\trigTest, [freq: 800, dur: 0.75], s, \addToHead)

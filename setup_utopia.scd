@@ -58,6 +58,6 @@ if(~enableRemoteCodeExecution == true, {
 	who.postln;
 	code.postln;
 	if(who != ~me.name,
-		{code.interpret},
+		{code.asString.interpret},
 		{"not interpreting code from you twice!".postln});
 });} ,{"not executing remote code"});
