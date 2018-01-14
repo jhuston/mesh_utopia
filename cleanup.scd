@@ -4,4 +4,4 @@ History.end;
 
 
 // cleanup chat
-~chatter.free; ~chatWin.close;
+~chatter.free; ~peers.close;
