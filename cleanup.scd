@@ -2,6 +2,5 @@
 ~codeRelay.free;
 History.end;
 
-
 // cleanup chat
 ~chatter.free; ~peers.close;
