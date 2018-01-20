@@ -2,7 +2,8 @@
 
 // 2. enter the following information FROM step 3 of server_session:
 ~remoteIP = "10.0.1.x";
-~remotePort = 571x0;
+// remote server port
+~remotePort = 57110;
 ~maxLogins = 16;
 
 // 4. choose a remote server name

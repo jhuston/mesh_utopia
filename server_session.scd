@@ -3,13 +3,15 @@
 
 Server.default = Server.local;
 o = Server.local.options;
-o.memSize = 4096;
-o.maxLogins_(16);
-o.numOutputBusChannels = 4;
-//o.device ="MOTU Traveler";     // use a specific soundcard
-o.device = nil;            // use the system default soundcard
+o.device = "MOTU 828mk2";
+o.numOutputBusChannels = 8;
+o.outputStreamsEnabled = "11111111";
+o.maxLogins = 16;
+o.maxNodes = 1024;
+o.maxSynthDefs = 1024;
+//o.device = nil;  // use the system default soundcard
 
-s.reboot;
+s.boot;
 
 // 2. join Utopia, setup chat, SynthDescRelay and CodeRelay
 "setup_utopia.scd".loadRelative;

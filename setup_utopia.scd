@@ -11,7 +11,9 @@ peer.name ++ " | " ++ peer.addr.ip ++ " | " ++ if(peer.online, "online", "offlin
 }, Array)}.defer;
 });
 
+// FIX THIS FOR  \n in hostname
 ~addrBook.addMe("hostname".unixCmdGetStdOut.split($.)[0];); // add this machine
+
 //Is this the VPN?
 if (~streisand.class == NMLNetAddrMP, {
 	"using streisand broadcast address".postln;
