@@ -20,8 +20,12 @@ s.boot;
 // look for something like inet 10.0.1.x
 // NOT  127.0.0.1
 
-// IP address:
-"ifconfig |grep inet".systemCmd;
+// print the IP address to the post window
+// use this in client_session as ~remoteIP:
+"Server I.P. Address: " ++ "ifconfig | grep \"inet \" | grep -v 127.0.0.1 | cut -d\" \" -f2".unixCmdGetStdOut;
+
+//If the above doesn't work, use this to find the address:
+"ifconfig | grep inet ".systemCmd;
 
 // Port Number
 NetAddr.langPort.postln;
